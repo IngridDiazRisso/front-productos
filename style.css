@@ -1,0 +1,332 @@
+/* Variables de color para manejo rápido */
+:root {
+  --bg-pantalla: #07090e; /* Fondo general negro profundo */
+  --bg-tarjeta: #12161f; /* Gris oscuro azulado para las dos secciones */
+  --bg-inputs: #1a202c; /* Fondo para las cajas de texto */
+  --border-soft: #242b35; /* Líneas divisorias */
+  --text-principal: #f0f6fc; /* Texto claro */
+  --text-secundario: #8b949e; /* Texto gris */
+  --azul: #58a6ff;
+  --verde: #3fb950;
+  --rojo: #f85149;
+}
+
+/* Configuración básica y tamaño de letra general más grande */
+body {
+  background-color: var(--bg-pantalla);
+  color: var(--text-principal);
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem; /* Incrementa el tamaño de los textos */
+}
+
+/* Centrado del Dashboard en el medio de la pantalla */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Estilo de la cabecera */
+.dashboard-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--azul);
+}
+
+.dashboard-header p {
+  color: var(--text-secundario);
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+/* EL truco del diseño: CSS Grid nativo para separar en dos columnas */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr; /* La columna de la tabla es 2.5 veces más ancha */
+  gap: 2rem; /* Separación notable entre ambos bloques */
+  margin-top: 2rem;
+}
+
+/* Bloques con fondo gris oscuro diferenciado y sombras */
+.bloque-seccion {
+  background-color: var(--bg-tarjeta);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Títulos internos */
+.titulo-seccion {
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.texto-azul {
+  color: var(--azul);
+}
+.texto-verde {
+  color: var(--verde);
+}
+
+.descripcion-seccion {
+  color: var(--text-secundario);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* Formularios e Inputs */
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.grupo-input label {
+  font-size: 0.95rem;
+  color: var(--text-secundario);
+  font-weight: 600;
+}
+
+.grupo-input input {
+  background-color: var(--bg-inputs);
+  border: 1px solid var(--border-soft);
+  color: var(--text-principal);
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  outline: none;
+}
+
+.grupo-input input:focus {
+  border-color: var(--azul);
+}
+
+/* Botón Guardar */
+.btn-guardar {
+  background-color: #1f6feb;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.btn-guardar:hover {
+  background-color: var(--azul);
+}
+
+/* Cabecera de la tabla con contador alineado */
+.cabecera-tabla {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.contador-badge {
+  background-color: var(--bg-inputs);
+  border: 1px solid var(--border-soft);
+  color: var(--azul);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Estilos de la Tabla Limpia */
+.contenedor-tabla {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse; /* Evita bordes dobles antiguos */
+  text-align: left;
+}
+
+.tabla-productos th {
+  background-color: var(--bg-inputs);
+  color: var(--text-secundario);
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--border-soft);
+}
+
+.tabla-productos td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 1.1rem;
+}
+
+/* Hover en las filas */
+.tabla-productos tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Botón de eliminar minimalista */
+.btn-borrar {
+  background-color: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--rojo);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-borrar:hover {
+  background-color: rgba(248, 81, 73, 0.15);
+  border-color: var(--rojo);
+}
+/* Botón de editar minimalista amarillo/azul */
+.btn-editar {
+  background-color: transparent;
+  border: 1px solid var(--border-soft);
+  color: #e1a32a; /* Tono dorado/naranja */
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-editar:hover {
+  background-color: rgba(225, 163, 42, 0.15);
+  border-color: #e1a32a;
+}
+/* ==========================================================================
+   ESTILOS DEL FOOTER Y ALERTAS FLOTANTES
+   ========================================================================== */
+
+/* Estilos del Footer */
+.dashboard-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-secundario);
+  font-size: 0.95rem;
+}
+
+.dashboard-footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--azul);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--text-principal);
+}
+
+/* Contenedor de Alertas Flotantes (Arriba en el centro) */
+#alerta-contenedor {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (MÓVILES Y TABLETAS)
+   ========================================================================== */
+
+/* Cuando la pantalla mida 768 píxeles de ancho o menos (Móviles de todo tipo) */
+@media (max-width: 768px) {
+  /* Reducimos el tamaño de la letra general para que quepa todo mejor */
+  body {
+    font-size: 1rem;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Reducimos el margen exterior para aprovechar el espacio lateral */
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  /* El título principal se hace más compacto */
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .dashboard-header p {
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ¡EL TRUCO TRASCENDENTAL!: Pasamos de 2 columnas a 1 sola columna vertical */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Unimos un poco más las secciones */
+  }
+
+  /* Reducimos el espacio interno de los bloques oscuros */
+  .bloque-seccion {
+    padding: 1.2rem;
+  }
+
+  /* Ajustamos la cabecera de la tabla para que el contador no choque con el título */
+  .cabecera-tabla {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* Forzamos a que la tabla permita scroll horizontal si los nombres son largos */
+  .contenedor-tabla {
+    display: block;
+    width: 100%;
+    overflow-x: auto; /* Si no cabe la tabla, aparece barra de scroll solo en la tabla */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hacemos las celdas un poco más compactas para que entren en pantallas pequeñas */
+  .tabla-productos th,
+  .tabla-productos td {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Colocamos los botones de Editar y Borrar uno debajo del otro en el móvil */
+  .tabla-productos td style {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .btn-editar,
+  .btn-borrar {
+    width: 100%; /* Botones a pantalla completa dentro de su celda */
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
